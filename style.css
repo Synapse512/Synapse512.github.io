@@ -1,9 +1,15 @@
 body {
   font-family: "Times New Roman";
+  background-color: rgb(24, 26, 27);
 }
+
 .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 25%;
+}
+
+.navbar {
+    background-color: rgb(51, 55, 57) !important;
 }
