@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Synapse512 | Projects</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.png" />
+</head>
+
+<body class="projects-page">
+
+  <header class="navbar">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="contacts.html">Contacts</a>
+    </nav>
+    <div class="navbar-social" aria-label="Profile links">
+      <a class="navbar-icon-link" href="https://github.com/Synapse512" target="_blank" rel="noopener noreferrer"
+        data-tooltip="Github Profile" aria-label="GitHub">
+        <img src="assets/icons/GitHub_Invertocat_White.png" alt="" />
+      </a>
+      <a class="navbar-icon-link" href="https://devforum.roblox.com/u/synapse512/summary" target="_blank"
+        rel="noopener noreferrer" data-tooltip="Roblox DevProfile" aria-label="Roblox Dev Forum">
+        <img src="assets/icons/robloxIcon.png" alt="" />
+      </a>
+      <button class="navbar-icon-link copy-email-button" type="button" data-email="ljdoyle2009@gmail.com"
+        data-tooltip="Email" aria-label="Copy email address">
+        <img src="assets/icons/emailIcon.png" alt="" />
+      </button>
+    </div>
+  </header>
+
+  <div class="projects-layout">
+    <div class="projects-main">
+      <main class="project-document projects-intro">
+        <h1>Projects</h1>
+        <p>Currently, many of my projects are closed source and/or in development, so they will not show up here. Though, as I build more things over time, I plan to open source and share more of my projects.
+        </p>
+      </main>
+
+      <section class="project-document">
+        <article class="project-entry featured-project" id="generator-project">
+          <div class="project-description">
+            <div class="project-creation-date-header">4/3/25</div>
+            <h2>Rbxl Flow-Free Recreation</h2>
+            <p>
+              A game that allows players to practice flow-free puzzles for another popular Roblox game known as "Forsaken".
+              The game is entirely coded in luau, uses multi-script architecture, and its own data-management system.
+            </p>
+            <br>
+            <p>
+              Although the game's code and asset organization is, with honesty, quite scattered and hard to manage, this project taught me why its important to organize projects, make documentation, use tools to operate repositories, and how to deal with data issues affecting thousands of people in real time. 
+            </p>
+            <dl class="project-meta">
+              <div>
+                <dt>Status</dt>
+                <dd class="status-value">Closed Source</dd>
+              </div>
+              <div>
+                <dt>Project Link</dt>
+                <dd>
+                  <a class="project-link-with-icon"
+                    href="https://www.roblox.com/games/73145897800843/Forsaken-Generator-Puzzle-Practice" target="_blank"
+                    rel="noopener noreferrer">
+                    <span>Roblox game page</span>
+                    <img src="assets/icons/link.png" alt="" />
+                  </a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+          <aside class="project-stats" aria-label="Generator game stats">
+            <h3>Stats</h3>
+            <dl>
+              <div>
+                <dt>Visits</dt>
+                <dd>6.5M+</dd>
+              </div>
+              <div>
+                <dt>Favorites</dt>
+                <dd>21,410</dd>
+              </div>
+              <div>
+                <dt>Total Players</dt>
+                <dd>3M+</dd>
+              </div>
+            </dl>
+            <div class="project-image-stack" aria-label="Generator game images">
+              <img src="assets/project_assets/thumbnailimage.webp" alt="Forsaken Generator Puzzle Practice thumbnail" />
+              <img src="assets/project_assets/gameplayimage.webp" alt="Forsaken Generator Puzzle Practice gameplay" />
+            </div>
+          </aside>
+        </article>
+      </section>
+
+      <section class="project-document">
+        <article class="project-entry standard-project" id="rbxl-audio-engine-project">
+          <div class="project-description">
+            <div class="project-creation-date-header">8/9/26</div>
+            <h2>Rbxl Audio Engine</h2>
+            <p>
+ A module made for the automatic configuration of audio objects in Roblox. In 2024, a new Audio API was released that utilized linear routing through wires instead of just sound properties. This system requires a lot of manual configuration, so to make creation and manageability of audio objects easier, the module was made to automatically wire, parent, and group all audio objects in a rbxl project, whether they are two or three dimensional. It also features functionality to convert the legacy rbxl sound objects from 2006 to the modern system without any extra effort from the developer.
+            </p>
+            <dl class="project-meta">
+              <div>
+                <dt>Status</dt>
+                <dd class="open-source-value">Open Source</dd>
+              </div>
+              <div>
+                <dt>Project Link</dt>
+                <dd>
+                  <a class="project-link-with-icon" href="https://github.com/Synapse512/rbxl-audio-engine" target="_blank"
+                    rel="noopener noreferrer">
+                    <span>GitHub repository</span>
+                    <img src="assets/icons/link.png" alt="" />
+                  </a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+      </section>
+
+      <!-- DEFAULT SECTION
+            <section class="project-document">
+        <article class="project-entry">
+          <h2>Project Name</h2>
+          <p>
+            Write a short description of what the project does, what you built it with, and what you learned from it.
+          </p>
+          <p>
+            Link: <a href="https://github.com/Synapse512" target="_blank" rel="noopener noreferrer">View project</a>
+          </p>
+        </article>
+      </section>
+      -->
+
+    </div>
+
+    <aside class="project-jump-nav" aria-label="Project list">
+      <h2>
+        <span>Project Links</span>
+        <img src="assets/icons/link.png" alt="" />
+      </h2>
+      <a href="#generator-project">
+        <span class="project-jump-name">Rbxl Flow-Free Recreation</span>
+        <span class="project-jump-date">4/3/25</span>
+      </a>
+      <a href="#rbxl-audio-engine-project">
+        <span class="project-jump-name">Rbxl Audio Engine</span>
+        <span class="project-jump-date">8/9/26</span>
+      </a>
+    </aside>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
