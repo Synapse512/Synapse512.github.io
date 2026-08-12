@@ -174,3 +174,101 @@ document.querySelectorAll('.copy-email-button').forEach((button) => {
     }, 1600);
   });
 });
+
+const pageScrollOrder = ['index.html', 'projects.html', 'contacts.html'];
+const scrollNavigationThreshold = 260;
+const touchNavigationThreshold = 130;
+let isPageScrollNavigating = false;
+let edgeScrollIntent = 0;
+let touchStartY = null;
+
+function getCurrentPageName() {
+  const pageName = window.location.pathname.split('/').pop();
+  return pageName || 'index.html';
+}
+
+function getScrollPositionInfo() {
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  const viewportHeight = window.innerHeight;
+  const pageHeight = Math.max(
+    document.body.scrollHeight,
+    document.documentElement.scrollHeight
+  );
+
+  return {
+    isAtTop: scrollTop <= 1,
+    isAtBottom: scrollTop + viewportHeight >= pageHeight - 1
+  };
+}
+
+function navigateByScrollDirection(direction) {
+  if (isPageScrollNavigating) {
+    return;
+  }
+
+  const currentPageIndex = pageScrollOrder.indexOf(getCurrentPageName());
+
+  if (currentPageIndex === -1) {
+    return;
+  }
+
+  const nextPageIndex = currentPageIndex + direction;
+
+  if (nextPageIndex < 0 || nextPageIndex >= pageScrollOrder.length) {
+    return;
+  }
+
+  isPageScrollNavigating = true;
+  window.location.href = pageScrollOrder[nextPageIndex];
+}
+
+window.addEventListener('wheel', (event) => {
+  const { isAtTop, isAtBottom } = getScrollPositionInfo();
+
+  if (event.deltaY > 0 && isAtBottom) {
+    edgeScrollIntent += event.deltaY;
+
+    if (edgeScrollIntent >= scrollNavigationThreshold) {
+      navigateByScrollDirection(1);
+    }
+    return;
+  }
+
+  if (event.deltaY < 0 && isAtTop) {
+    edgeScrollIntent += Math.abs(event.deltaY);
+
+    if (edgeScrollIntent >= scrollNavigationThreshold) {
+      navigateByScrollDirection(-1);
+    }
+    return;
+  }
+
+  edgeScrollIntent = 0;
+}, { passive: true });
+
+window.addEventListener('touchstart', (event) => {
+  touchStartY = event.touches[0]?.clientY ?? null;
+}, { passive: true });
+
+window.addEventListener('touchmove', (event) => {
+  if (touchStartY === null) {
+    return;
+  }
+
+  const currentY = event.touches[0]?.clientY;
+
+  if (currentY === undefined) {
+    return;
+  }
+
+  const touchDelta = touchStartY - currentY;
+  const { isAtTop, isAtBottom } = getScrollPositionInfo();
+
+  if (touchDelta > touchNavigationThreshold && isAtBottom) {
+    navigateByScrollDirection(1);
+  }
+
+  if (touchDelta < -touchNavigationThreshold && isAtTop) {
+    navigateByScrollDirection(-1);
+  }
+}, { passive: true });
